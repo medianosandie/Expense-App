@@ -1,0 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
+
+.input-group{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 300px;
+  width: 80%;
+}
+
+.input-group label , button{
+  padding: .3em;
+}
+
+input{
+  padding: .5em;
+  font-size: medium;
+}
+
+
+
