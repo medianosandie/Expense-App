@@ -1,5 +1,5 @@
 import './style/Input-Form.css'
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 
 export default function InputForm({getData}){
 
@@ -7,6 +7,14 @@ export default function InputForm({getData}){
     let [dataHargaSatuan,setDataHargaSatuan] = useState({});
     let [dataJumlah,setDataJumlah] = useState({});
     let [dataTotal,setDataTotal] = useState({});
+
+    useEffect(()=>{
+
+        setDataTotal({
+            total : parseInt(dataHargaSatuan.hargaSatuan) * parseInt(dataJumlah.jumlah)
+        });
+
+    },[dataJumlah.jumlah,dataHargaSatuan.hargaSatuan]);
 
     function updateDataKeterangan(e){
         let nilai = e.target.value;
@@ -29,13 +37,6 @@ export default function InputForm({getData}){
         }
         setDataJumlah(objek);
     }
-    function updateDataTotal(e){
-        let nilai = e.target.value;
-        let objek = {
-            total:nilai
-        }
-        setDataTotal(objek);
-    }
 
     function sendData(){
       
@@ -50,32 +51,27 @@ export default function InputForm({getData}){
     }
 
     function clearValue(){
-        document.querySelector("[name='keterangan']").value = ''
-        document.querySelector("[name='hargaSatuan']").value = ''
-        document.querySelector("[name='jumlah']").value = ''
-        document.querySelector("[name='total']").value = ''
+        document.querySelector("[name='keterangan']").value = '';
+        document.querySelector("[name='hargaSatuan']").value = '';
+        document.querySelector("[name='jumlah']").value = '';
     }
 
     return(
         <React.Fragment>
             <div className="input-group">
                 <section>
-                    <label for="keterangan">keterangan</label>
+                    <label for="keterangan">Keterangan</label>
                     <input type="text" name="keterangan" onChange={updateDataKeterangan}/>
                 </section>
                 <section>
-                    <label for="harga-satuan">harga-satuan</label>
+                    <label for="harga-satuan">Harga Satuan</label>
                     <input type="text" name="hargaSatuan" onChange={updateDataHargaSatuan}/>
                 </section>
                 <section>
-                    <label for="jumlah">jumlah</label>
+                    <label for="jumlah">Jumlah</label>
                     <input name="jumlah" type="number" onChange={updateDataJumlah}/>
                 </section>
-                <section>
-                    <label for="total">total</label>
-                    <input type="text" name="total" onChange={updateDataTotal} />
-                </section>
-                <button onClick={sendData}>tambah data</button>
+                <button onClick={sendData}>Tambah Data</button>
             </div>
             
         </React.Fragment>

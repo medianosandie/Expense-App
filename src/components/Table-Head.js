@@ -5,12 +5,12 @@ export default function TableHead(){
     return(
         <thead>
             <tr>
-                <th>no</th>
-                <th>keterangan</th>
-                <th>harga satuan</th>
-                <th>jumlah</th>
-                <th>total</th> 
-                <th>aksi</th>     
+                <th>No</th>
+                <th>Keterangan</th>
+                <th>Harga satuan</th>
+                <th>Jumlah</th>
+                <th>Total</th> 
+                <th>Aksi</th>     
             </tr>
         </thead>
     );

@@ -19,11 +19,11 @@ function App() {
   }
   return (
     <div className="App">
-      <Header id="header"/>
-      <section class="left">
+      <Header className="header"/>
+      <section className="left">
         <InputForm getData={getData}/>
       </section>
-      <section class="right">
+      <section className="right">
         <Tabel data={data} hapusData={hapusData}/>
       </section>
     </div>
